@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --bg-primary: rgb(26, 29, 38);
+        --text-primary: #FFEB3C;
+        --text-secondary: #aaa;
+        --border-primary: #333;
+        --button-primary: #222430;
+        --bg-nav: rgba(26, 29, 38, .8);
+    }
+    
+    body {
+        @apply font-poppins bg-bg-primary text-text-primary
+    }
+
+    body::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    body::-webkit-scrollbar-track {
+        display: none;
+    }
+    
+    body::-webkit-scrollbar-thumb {
+        @apply bg-text-primary rounded-full
+    }
+
+    input {
+        color-scheme: dark;
+    }
+}
+
+@layer utilities {
+    .transition-transform-width {
+        transition: .3s width cubic-bezier(0.4, 0, 0.2, 1), .3s transform cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .active {
+        @apply after:content-[''] after:absolute after:-left-2 after:right-0 after:-top-2 bottom-0 after:w-full after:h-full after:rounded-full after:border-4 after:p-5
+    }
+
+    #task.error, #timestamp.error {
+        @apply border-red-600 focus:ring-red-600
+    }
+}
